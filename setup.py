@@ -31,6 +31,8 @@ setuptools.setup(
         'scrapelib',
         'xmltodict',
         'packaging',
+        'boto3',
+        'botocore'
     ],
     entry_points={
         'console_scripts': [
@@ -44,3 +46,4 @@ setuptools.setup(
         'scripts/voteview.sh'
     ],
 )
+
