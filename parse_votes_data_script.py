@@ -1,14 +1,9 @@
 # python parse_votes_data_script.py
-import subprocess
 import os
 import json
 
-result = subprocess.run(["ls", "-l"], stdout=subprocess.PIPE, text=True)
-
-print(result.stdout)
-
 script_directory = os.path.dirname(os.path.abspath(__file__))
-print("Script Directory:", script_directory)
+data_array = []
 
 for root, dirs, files in os.walk(script_directory):
     for file_name in files:
@@ -20,6 +15,11 @@ for root, dirs, files in os.walk(script_directory):
             # Now you can work with the JSON file
             with open(json_file_path, "r") as json_file:
                 data = json.load(json_file)
-                # Process the JSON data as needed
-                print("Found JSON file:", json_file_path)
-                print("JSON data:", data)
+                data_array.append(data)
+
+# Convert data_array to a string representation
+data_str = "\n".join(json.dumps(data) for data in data_array)
+
+#
+# # Print the data
+# print(data_array[0])
