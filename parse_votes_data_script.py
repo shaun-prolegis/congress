@@ -5,16 +5,16 @@ import boto3
 import random
 
 def upload_file(data_array, access_key_id, secret_access_key):
-    # client = boto3.client('s3',aws_access_key_id=access_key_id,aws_secret_access_key=secret_access_key)
-    #
-    # random_number = random.randint(1, 1000)
-    # key = f'test-key-{random_number}'
-    #
-    # client.put_object(
-    #     Body=json.dumps(data_array),
-    #     Bucket='roll-call-votes',
-    #     Key=key
-    # )
+    client = boto3.client('s3',aws_access_key_id=access_key_id,aws_secret_access_key=secret_access_key)
+
+    random_number = random.randint(1, 1000)
+    key = f'test-key-{random_number}'
+
+    client.put_object(
+        Body=json.dumps(data_array),
+        Bucket='roll-call-votes',
+        Key=key
+    )
 
     print("done")
 
