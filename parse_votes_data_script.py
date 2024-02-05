@@ -13,7 +13,7 @@ def upload_file(data_array, access_key_id, secret_access_key):
 
     client.put_object(
         Body=json.dumps(data_array),
-        Bucket='roll-call-votes',
+        Bucket='development/roll-call-votes',
         Key=key
     )
 
